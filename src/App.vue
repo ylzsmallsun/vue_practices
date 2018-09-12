@@ -5,6 +5,8 @@
       </div>
       <h1>Hello, <strong>{{ name }}</strong>! Let's learn Vue.js</h1> 
       <div>&#x1f638;</div>
+
+      <div>{{testObj.lan}}</div>
   </div>
 </template>
 
@@ -13,7 +15,8 @@ export default {
   name: 'app',
   data () {
     return {
-      name: 'Smallsun'
+      name: 'Smallsun',
+      testObj: {}
     }
   },
   beforeCreate: function () {
@@ -36,8 +39,9 @@ export default {
     console.log(this.$el);
     console.log('name: ' + this.name);
 
-    // update name
-    setTimeout(()=> { this.name = '小太阳'}, 1000);
+    // update name and add new property for testObj which is empty object defined in data
+    setTimeout(
+      ()=> { this.name = '小太阳'; this.testObj.lan='en'; }, 1000);
   },
   beforeUpdate: function () {
     console.log('----before update----');
